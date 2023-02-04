@@ -1,0 +1,38 @@
+.selected:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  filter: brightness(1.2);
+  transition: transform var(--motion-duration) var(--motion-ease);
+}
+
+.title {
+  font-size: 14px;
+  text-shadow: 2px 2px 7px black;
+  font-weight: bold;
+}
+
+.title:hover {
+  transform: scale(1.11);
+  filter: brightness(5);
+  transition: transform var(--motion-duration) var(--motion-ease);
+}
+
+.poster {
+  border: 10px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 7px 16px 16px black;
+}
+
+.voteAverage {
+  background-color: black;
+  border: 2px solid rgb(255, 255, 0);
+  box-shadow: 2px 2px 3px black;
+  padding: 8px;
+  border-radius: 10px;
+  position: fixed;
+  color: rgb(255, 255, 0);
+  font-weight: bold;
+  font-size: 32px;
+  margin-top: 15px;
+  margin-left: -124px;
+}
