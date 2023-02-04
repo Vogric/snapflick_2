@@ -1,9 +1,10 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import styles from '../HomeCarousel/HomeCarousel.module.css';
-import Button from '../ui/Button/Button';
 import { MovieOrTVShow } from './model';
 import { getPopularMoviesAndTvShows } from './HomeCarousel.service';
+import { useNavigate } from 'react-router-dom';
 import Spinner from '../ui/Spinner/Spinner';
+import Button from '../ui/Button/Button';
 
 const UnselectedMovieOrTvShow = lazy(
   () => import('./UnselectedMovieOrTvShow/UnselectedMovieOrTvShow')
@@ -15,6 +16,7 @@ const SelectedMovieOrTvShow = lazy(
 const HomeCarousel: () => JSX.Element | null = () => {
   const [moviesAndTvShows, setMoviesAndTvShows] = useState<MovieOrTVShow[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const navigate = useNavigate();
 
   const handlePrevious = (): void => {
     setCurrentIndex(
@@ -28,8 +30,11 @@ const HomeCarousel: () => JSX.Element | null = () => {
     );
   };
 
-  const showMovieOrTVShowDetail = () => {
-    alert('Details page');
+  const showMovieOrTVShowDetail = (
+    moviesOrTvShow: MovieOrTVShow[],
+    currentIndex: number
+  ) => {
+    navigate(`/details/:${moviesOrTvShow?.[currentIndex]?.id}`);
   };
 
   useEffect((): void => {
@@ -46,30 +51,28 @@ const HomeCarousel: () => JSX.Element | null = () => {
     <div className={styles.container}>
       <Button contentValue={'<'} handleClick={handlePrevious} />
 
-      <Suspense fallback={<Spinner />}>
-        <UnselectedMovieOrTvShow
-          moviesAndTvShows={moviesAndTvShows}
-          position={currentIndex - 1}
-          alt={currentIndex ? 'poster-movie' : ''}
-        />
-      </Suspense>
+      <UnselectedMovieOrTvShow
+        moviesAndTvShows={moviesAndTvShows}
+        position={currentIndex - 1}
+        alt={currentIndex ? 'poster-movie' : ''}
+      />
 
       <Suspense fallback={<Spinner />}>
         <SelectedMovieOrTvShow
           moviesAndTvShows={moviesAndTvShows}
           index={currentIndex}
-          showMovieOrTVShowDetail={showMovieOrTVShowDetail}
+          showMovieOrTVShowDetail={(): void =>
+            showMovieOrTVShowDetail(moviesAndTvShows, currentIndex)
+          }
         />
       </Suspense>
 
       {currentIndex ? (
-        <Suspense fallback={<Spinner />}>
-          <UnselectedMovieOrTvShow
-            moviesAndTvShows={moviesAndTvShows}
-            position={currentIndex + 1}
-            alt={currentIndex ? '' : 'poster-movie'}
-          />
-        </Suspense>
+        <UnselectedMovieOrTvShow
+          moviesAndTvShows={moviesAndTvShows}
+          position={currentIndex + 1}
+          alt={currentIndex ? '' : 'poster-movie'}
+        />
       ) : null}
 
       <Button contentValue={'>'} handleClick={handleNext} />
