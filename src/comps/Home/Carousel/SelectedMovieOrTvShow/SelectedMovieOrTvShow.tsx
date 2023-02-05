@@ -1,5 +1,8 @@
 import styles from './SelectedMovieOrTvShow.module.css';
-import { MovieOrTVShow } from '../model';
+import { MovieOrTVShow } from '../../../model';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { ROUTE } from '../../../../services/enums';
 
 interface SelectedMovieOrTvShowProps {
   moviesAndTvShows: MovieOrTVShow[];
@@ -14,10 +17,11 @@ const SelectedMovieOrTvShow = ({
 }: SelectedMovieOrTvShowProps): JSX.Element => {
   return (
     <div className={styles.selected} onClick={showMovieOrTVShowDetail}>
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${moviesAndTvShows?.[index]?.poster_path}`}
+      <LazyLoadImage
+        src={`${ROUTE.TMDB_IMAGE}${moviesAndTvShows?.[index]?.poster_path}`}
         alt="poster-movie"
         className={styles.poster}
+        effect="blur"
       />
       <span className={styles.voteAverage}>
         {moviesAndTvShows?.[index]?.vote_average + '⭐'}

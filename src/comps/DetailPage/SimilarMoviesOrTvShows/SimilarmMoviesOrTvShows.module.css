@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.similarContainer {
+  width: 130px;
+  margin-top: 40px;
+}
+
+.similarContainer :hover {
+  cursor: pointer;
+  cursor: pointer;
+  transform: scale(1.07);
+  filter: brightness(1.2);
+  transition: transform var(--motion-duration) var(--motion-ease);
+}
+
+.similarPoster {
+  height: 120px;
+  box-shadow: 2px 5px 5px black;
+}
+
+.titleOrName {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  text-shadow: 2px 5px 5px black;
+}

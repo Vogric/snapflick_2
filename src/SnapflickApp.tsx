@@ -1,19 +1,24 @@
 import { ReactNode } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MovieOrTvShowDetail from './comps/Home/HomeCarousel/MovieOrTvShowDetail/MovieOrTvShowDetail';
-import Home from './comps/Home/Home';
+import { Provider } from 'react-redux';
+import store from './store/index';
+import Home from './pages/Home/Home';
+import DetailPage from './pages/Detail/DetailPage';
+import { ROUTE } from './services/enums';
 
 const SnapflickApp = (): JSX.Element => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={(<Home />) as unknown as ReactNode} />
-        <Route
-          path="/details/:id"
-          element={(<MovieOrTvShowDetail />) as unknown as ReactNode}
-        />
-        <Route path="*" element={(<Home />) as unknown as ReactNode} />
-      </Routes>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={(<Home />) as unknown as ReactNode} />
+          <Route
+            path={ROUTE.DETAIL}
+            element={(<DetailPage />) as unknown as ReactNode}
+          />
+          <Route path="*" element={(<Home />) as unknown as ReactNode} />
+        </Routes>
+      </Provider>
     </Router>
   );
 };

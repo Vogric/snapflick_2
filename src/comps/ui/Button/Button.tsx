@@ -1,14 +1,22 @@
 import styles from './Button.module.css';
 
 interface ButtonProps {
-  contentValue: string;
+  value: string;
   handleClick: () => void;
+  isBackToHomeBtn?: boolean;
 }
 
-const Button = ({ contentValue, handleClick }: ButtonProps): JSX.Element => {
+const Button = ({
+  value,
+  handleClick,
+  isBackToHomeBtn,
+}: ButtonProps): JSX.Element => {
   return (
-    <button className={styles.btn} onClick={handleClick}>
-      <span> {contentValue}</span>
+    <button
+      className={isBackToHomeBtn ? styles.backToHomeBtn : styles.btn}
+      onClick={handleClick}
+    >
+      <span> {value}</span>
       <svg
         viewBox="-5 -5 110 110"
         preserveAspectRatio="none"
