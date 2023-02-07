@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/index';
@@ -13,12 +12,9 @@ const SnapflickApp = (): JSX.Element => {
       <Router>
         <Provider store={store}>
           <Routes>
-            <Route path="/" element={(<Home />) as unknown as ReactNode} />
-            <Route
-              path={ROUTE.DETAIL}
-              element={(<DetailPage />) as unknown as ReactNode}
-            />
-            <Route path="*" element={(<Home />) as unknown as ReactNode} />
+            <Route path="/" element={<Home />} />
+            <Route path={ROUTE.DETAIL} element={<DetailPage />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </Provider>
       </Router>
