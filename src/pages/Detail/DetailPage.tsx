@@ -7,7 +7,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import SimilarmMoviesOrTvShows from '../../comps/DetailPage/SimilarMoviesOrTvShows/SimilarMoviesOrTvShows';
 import { ROUTE } from '../../services/enums';
 
-interface State {
+export interface State {
   selectedMovieOrTvShow: MovieOrTVShow[];
 }
 

@@ -1,14 +1,10 @@
 interface HeaderProps {
-  improveHomeUi: boolean;
-  setImproveHomeUi: React.Dispatch<React.SetStateAction<boolean>>;
+  onClick: () => void;
 }
 
-const Header = ({
-  improveHomeUi,
-  setImproveHomeUi,
-}: HeaderProps): JSX.Element => {
+const Header = ({ onClick }: HeaderProps): JSX.Element => {
   return (
-    <header onClick={(): void => setImproveHomeUi(!improveHomeUi)}>
+    <header onClick={onClick}>
       <h1 style={{ fontSize: '28px', cursor: 'pointer' }}>Snapflick</h1>
     </header>
   );

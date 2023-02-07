@@ -10,10 +10,7 @@ const Home: () => JSX.Element = () => {
   return (
     <div className={styles.container}>
       <BackgroundVideo />
-      <Header
-        improveHomeUi={improveHomeUi}
-        setImproveHomeUi={setImproveHomeUi}
-      />
+      <Header onClick={(): void => setImproveHomeUi(!improveHomeUi)} />
       <Carousel improveHomeUi={improveHomeUi} />
       <Footer />
     </div>

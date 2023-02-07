@@ -16,7 +16,7 @@ const Button = ({
       className={isBackToHomeBtn ? styles.backToHomeBtn : styles.btn}
       onClick={handleClick}
     >
-      <span> {value}</span>
+      <span>{value}</span>
       <svg
         viewBox="-5 -5 110 110"
         preserveAspectRatio="none"
