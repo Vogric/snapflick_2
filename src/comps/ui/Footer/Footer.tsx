@@ -1,13 +1,15 @@
-const Footer: () => JSX.Element = () => {
+import { FC } from 'react';
+
+const Footer: FC = (): JSX.Element => {
   return (
     <footer
       style={{
-        position: 'absolute',
-        left: '0',
-        right: '0',
         bottom: '0',
-        margin: 'auto',
         fontSize: '10px',
+        left: '0',
+        margin: 'auto',
+        position: 'absolute',
+        right: '0',
       }}
     >
       <span>© 2023 Snapflick, Inc.</span>

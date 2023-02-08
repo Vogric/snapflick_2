@@ -3,18 +3,19 @@ import { MovieOrTVShow } from '../../../model';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { ROUTE } from '../../../../services/enums';
+import { FC } from 'react';
 
 interface SelectedMovieOrTvShowProps {
-  moviesAndTvShows: MovieOrTVShow[];
   index: number;
+  moviesAndTvShows: MovieOrTVShow[];
   showMovieOrTVShowDetail: () => void;
 }
 
-const SelectedMovieOrTvShow = ({
-  moviesAndTvShows,
+const SelectedMovieOrTvShow: FC<SelectedMovieOrTvShowProps> = ({
   index,
+  moviesAndTvShows,
   showMovieOrTVShowDetail,
-}: SelectedMovieOrTvShowProps): JSX.Element => {
+}): JSX.Element => {
   return (
     <div className={styles.selected} onClick={showMovieOrTVShowDetail}>
       <LazyLoadImage

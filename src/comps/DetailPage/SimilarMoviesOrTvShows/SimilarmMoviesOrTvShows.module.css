@@ -4,21 +4,21 @@
 }
 
 .similarContainer {
-  width: 130px;
   margin-top: 40px;
+  width: 130px;
 }
 
 .similarContainer :hover {
   cursor: pointer;
   cursor: pointer;
-  transform: scale(1.07);
   filter: brightness(1.2);
+  transform: scale(1.07);
   transition: transform var(--motion-duration) var(--motion-ease);
 }
 
 .similarPoster {
-  height: 120px;
   box-shadow: 2px 5px 5px black;
+  height: 120px;
 }
 
 .titleOrName {

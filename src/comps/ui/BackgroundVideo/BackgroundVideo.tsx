@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import styles from './BackgroundVideo.module.css';
 
-const BackgroundVideo = (): JSX.Element => {
+const BackgroundVideo: FC = (): JSX.Element => {
   return (
     <video
       data-testid="background-video"

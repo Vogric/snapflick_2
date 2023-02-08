@@ -1,7 +1,7 @@
 .backgroundVideo {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
   background-color: #0f0d0f;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
 }

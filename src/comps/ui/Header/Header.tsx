@@ -1,11 +1,13 @@
+import { FC } from 'react';
+
 interface HeaderProps {
   onClick: () => void;
 }
 
-const Header = ({ onClick }: HeaderProps): JSX.Element => {
+const Header: FC<HeaderProps> = ({ onClick }): JSX.Element => {
   return (
     <header onClick={onClick}>
-      <h1 style={{ fontSize: '28px', cursor: 'pointer' }}>Snapflick</h1>
+      <h1 style={{ cursor: 'pointer', fontSize: '28px' }}>Snapflick</h1>
     </header>
   );
 };
