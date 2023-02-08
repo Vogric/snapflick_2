@@ -1,8 +1,8 @@
 :root {
   --motion-ease: cubic-bezier(0.68, -0.6, 0.32, 1.6);
   --motion-duration: 0.2s;
-  font-size: clamp(16px, 5vw, 32px);
   box-sizing: border-box;
+  font-size: clamp(16px, 5vw, 32px);
 }
 
 button {
@@ -11,13 +11,13 @@ button {
   border: 0;
   color: #8b8b8b;
   cursor: pointer;
-  font: inherit;
   font-weight: 500;
+  font: inherit;
   line-height: 1;
+  margin: 10px;
   padding: 0.6em 1em;
   position: relative;
   transition: filter var(--motion-duration);
-  margin: 10px;
 }
 
 button:hover {
@@ -36,8 +36,8 @@ button > span {
 }
 
 button:hover > span {
-  transform: scale(1.25);
   color: #ffffff;
+  transform: scale(1.25);
 }
 
 button:active > span {
@@ -46,11 +46,11 @@ button:active > span {
 
 button > svg {
   fill: #000000;
+  height: 110%;
+  left: -5%;
   position: absolute;
   top: -5%;
-  left: -5%;
   width: 110%;
-  height: 110%;
 }
 
 button > svg > path {

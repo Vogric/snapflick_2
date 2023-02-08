@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   getSimilarMovies,
@@ -17,9 +17,9 @@ interface SimilarmMoviesOrTvShowsProps {
   id: number;
 }
 
-const SimilarMoviesOrTvShows = ({
+const SimilarMoviesOrTvShows: FC<SimilarmMoviesOrTvShowsProps> = ({
   id,
-}: SimilarmMoviesOrTvShowsProps): JSX.Element => {
+}): JSX.Element => {
   const [similarMoviesOrTvShows, setSimilarMoviesOrTvShows] = useState<
     MovieOrTVShow[]
   >([]);

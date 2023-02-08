@@ -6,12 +6,13 @@ import { MovieOrTVShow } from '../../comps/model';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import SimilarmMoviesOrTvShows from '../../comps/DetailPage/SimilarMoviesOrTvShows/SimilarMoviesOrTvShows';
 import { ROUTE } from '../../services/enums';
+import { FC } from 'react';
 
 export interface State {
   selectedMovieOrTvShow: MovieOrTVShow[];
 }
 
-const DetailPage = (): JSX.Element => {
+const DetailPage: FC = (): JSX.Element => {
   const navigate = useNavigate();
 
   const getUpdateSelectedMovieOrTvShow = useSelector((state: State) => {

@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/index';
@@ -6,7 +7,7 @@ import DetailPage from './pages/Detail/DetailPage';
 import { ROUTE } from './services/enums';
 import ErrorBoundary from './comps/ErrorBoundary';
 
-const SnapflickApp = (): JSX.Element => {
+const SnapflickApp: FC = (): JSX.Element => {
   return (
     <ErrorBoundary>
       <Router>

@@ -1,16 +1,17 @@
+import { FC } from 'react';
 import styles from './Button.module.css';
 
 interface ButtonProps {
-  value: string;
   handleClick: () => void;
   isBackToHomeBtn?: boolean;
+  value: string;
 }
 
-const Button = ({
-  value,
+const Button: FC<ButtonProps> = ({
   handleClick,
   isBackToHomeBtn,
-}: ButtonProps): JSX.Element => {
+  value,
+}): JSX.Element => {
   return (
     <button
       className={isBackToHomeBtn ? styles.backToHomeBtn : styles.btn}

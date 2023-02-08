@@ -1,19 +1,20 @@
+import { FC } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { ROUTE } from '../../../../services/enums';
 import { MovieOrTVShow } from '../../../model';
 import styles from './UnselectedMovieOrTvShow.module.css';
 
 interface UnselectedMovieOrTvShowProps {
+  alt: string;
   moviesAndTvShows: MovieOrTVShow[];
   position: number;
-  alt: string;
 }
 
-const UnselectedMovieOrTvShow = ({
+const UnselectedMovieOrTvShow: FC<UnselectedMovieOrTvShowProps> = ({
+  alt,
   moviesAndTvShows,
   position,
-  alt,
-}: UnselectedMovieOrTvShowProps): JSX.Element => {
+}): JSX.Element => {
   return (
     <div>
       <LazyLoadImage

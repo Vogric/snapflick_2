@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { FC, lazy, Suspense, useEffect, useState } from 'react';
 import styles from '../Carousel/Carousel.module.css';
 import { MovieOrTVShow } from '../../model';
 import { getPopularMoviesAndTvShows } from '../../../services/MoviesAndTvShows.service';
@@ -23,7 +23,7 @@ enum ArrowDirection {
   LEFT = -1,
 }
 
-const Carousel = ({ improveHomeUi }: CarouselProps): JSX.Element | null => {
+const Carousel: FC<CarouselProps> = ({ improveHomeUi }): JSX.Element | null => {
   const [moviesAndTvShows, setMoviesAndTvShows] = useState<MovieOrTVShow[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const navigate = useNavigate();
