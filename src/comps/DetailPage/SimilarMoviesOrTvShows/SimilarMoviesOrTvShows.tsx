@@ -15,14 +15,18 @@ import { updateSelectedMovieOrTvShow } from '../../../store';
 
 interface SimilarmMoviesOrTvShowsProps {
   id: number;
+  video: boolean | undefined;
 }
 
 const SimilarMoviesOrTvShows: FC<SimilarmMoviesOrTvShowsProps> = ({
   id,
+  video,
 }): JSX.Element => {
   const [similarMoviesOrTvShows, setSimilarMoviesOrTvShows] = useState<
     MovieOrTVShow[]
   >([]);
+  const [isMovieSelected] = useState<boolean>(video !== undefined);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -35,24 +39,22 @@ const SimilarMoviesOrTvShows: FC<SimilarmMoviesOrTvShowsProps> = ({
   };
 
   useEffect((): void => {
-    getSimilarMovies(id)
-      .then((similarMovies) => {
-        setSimilarMoviesOrTvShows(similarMovies);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [id]);
-
-  useEffect((): void => {
-    getSimilarTVShows(id)
-      .then((similarTVShows) => {
-        setSimilarMoviesOrTvShows(similarTVShows);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [id]);
+    isMovieSelected
+      ? getSimilarMovies(id)
+          .then((similarMovies) => {
+            setSimilarMoviesOrTvShows(similarMovies);
+          })
+          .catch((error) => {
+            console.error(error);
+          })
+      : getSimilarTVShows(id)
+          .then((similarTVShows) => {
+            setSimilarMoviesOrTvShows(similarTVShows);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+  }, [id, isMovieSelected, video]);
 
   return (
     <section className={styles.container}>

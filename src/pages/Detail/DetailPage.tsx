@@ -28,6 +28,7 @@ const DetailPage: FC = (): JSX.Element => {
     backdrop_path,
     vote_count,
     id,
+    video,
   } = getUpdateSelectedMovieOrTvShow;
 
   return (
@@ -53,13 +54,13 @@ const DetailPage: FC = (): JSX.Element => {
           <h1 className={styles.titleOrName}>{title || name}</h1>
           <p className={styles.overview}>{overview}</p>
           <div className={styles.voteContainer}>
-            <p className={styles.vote}>{`Vote count ${vote_count}`}</p>
-            <p className={styles.vote}>{`Average vote ${vote_average}⭐`}</p>
+            <p className={styles.vote}>Vote count {vote_count}</p>
+            <p className={styles.vote}>Average vote {vote_average}⭐</p>
           </div>
         </div>
       </div>
       <div>
-        <SimilarmMoviesOrTvShows id={id} />
+        <SimilarmMoviesOrTvShows id={id} video={video} />
       </div>
     </section>
   );
