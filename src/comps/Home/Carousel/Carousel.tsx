@@ -8,7 +8,7 @@ import Button from '../../ui/Button/Button';
 import { useDispatch } from 'react-redux';
 import { updateSelectedMovieOrTvShow } from '../../../store/index';
 import UnselectedMovieOrTvShow from './UnselectedMovieOrTvShow/UnselectedMovieOrTvShow';
-import { MovieOrTVShowWithPoster } from '../../utils';
+import { MovieOrTVShowWithPoster } from '../../Utils/utils';
 
 const SelectedMovieOrTvShow = lazy(
   () => import('./SelectedMovieOrTvShow/SelectedMovieOrTvShow')

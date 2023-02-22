@@ -1,4 +1,4 @@
-import { MovieOrTVShow } from './model';
+import { MovieOrTVShow } from '../model';
 
 export const firstTenMoviesOrTVShowsWithPoster = (
   similarMoviesOrTvShows: MovieOrTVShow[]

@@ -7,7 +7,7 @@ import {
 import { MovieOrTVShow } from '../../../comps/model';
 import styles from './SimilarmMoviesOrTvShows.module.css';
 import { useDispatch } from 'react-redux';
-import { firstTenMoviesOrTVShowsWithPoster } from '../../utils';
+import { firstTenMoviesOrTVShowsWithPoster } from '../../Utils/utils';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { ROUTE } from '../../../services/enums';
