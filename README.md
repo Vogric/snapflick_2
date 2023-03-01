@@ -11,7 +11,7 @@ React.js, TypeScript, Redux, React router, Axios, Jest and React Testing Library
 https://developers.themoviedb.org/3
 
 ### Deployment
-https://snapflick-2-amnc39pib-vogric.vercel.app/
+https://snapflick-2-qdd2673lq-vogric.vercel.app/
 
 ------------------
 ##### You can run this project locally using `npm start`
